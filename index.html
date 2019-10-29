@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scary Halloween Party</title>
+    <link href="https://fonts.googleapis.com/css?family=Creepster&display=swap" rel="stylesheet"> 
+    <!-- esta presentación NO ES RESPONSIVE es para ordenador -->
+    <style>
+      /* this is the method to include new fonts True Type as local files to download for the user */
+      @font-face {
+                   font-family: itLives;
+                   src: url(fuentes/itlivesintheswamp.ttf); /* file in my fuentes folder */
+                  }
+       body {background:black;}
+       #wrapper {background-image: url("imagenes/fondo.jfif");
+                 width:1200px;
+                 height:900px;
+                 margin:10px auto;/* centra el wrapper */
+                 font-family: 'Creepster', cursive;
+                 position:relative;
+                 }
+        #titulo {font-size:3.5em;
+                 font-family:itLives; /* the font I've add via @font-face */
+                 position:absolute;
+                 top:10px;
+                 left:30px;}
+        #p1 {position:absolute;
+             font-size:1.5em;
+             top:80px;
+             left:870px;}
+        #witch {position: absolute;
+                top:130px;
+                left:900px;
+                width:100px;
+                height:160px;
+                cursor:pointer;
+                /*border: 1px solid white;*/}
+        #zombie {position:absolute;
+                 top:683px;
+                 left:500px;
+                 visibility:hidden;    /* hidden at the begin */
+                 cursor:crosshair;}
+    </style>
+    <script>
+      /* this function change the visibility of an element identified by its id, the parameter, to visible */
+       function show(element){
+         document.getElementById(element).style.visibility="visible";
+       }
+      /* this function change the visibility of an element identified by its id, the parameter, to hidden */ 
+       function hide(element){
+         document.getElementById(element).style.visibility="hidden";
+       }
+       /* this function makes an audio element identified by its id, the parameter, sound */ 
+       function sonar(element){
+         document.getElementById(element).play();
+       }
+       /* this function makes an audio element identified by its id, the parameter, sound */ 
+       function parar(element){
+         document.getElementById(element).pause();
+       }
+    </script>
+</head>
+<body onload="sonar('lullaby')">
+    <audio id="killyou" loop>
+        <source src="sonidos/killyou.mp3" type="audio/mpeg">
+    </audio>
+    <audio>
+        <source src="sonidos/lullaby.mp3" type="audio/mpeg">
+    </audio>
+    <div id="wrapper">
+      <h1 id="titulo">Scary Halloween Party</h1>
+      <p id="p1">Don´t disturb the witch!!!...</p>
+      <div id="witch" onclick="show('zombie');sonar('killyou')"></div><!-- this is the clickable area for the witch (see on style)-->
+      <img id="zombie" onclick="hide('zombie');parar('killyou')" src="imagenes/zombie.gif" height="200">
+    </div>
+</body>
+</html>
