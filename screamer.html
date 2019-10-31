@@ -22,16 +22,15 @@
       position:relative;
     }
   </style>
-  <script>
-    function play(element){
-      document.getElementById(element).play();
-    }
+  <script type="text/javascript">
+    var audio = new Audio('sonidos/screamer.mp3');
+    audio.play();
   </script>
 </head>
 <body>
-  <audio id="screamer">
+  <audio id="screamer" autoplay>
     <source src="sonidos/screamer.mp3" type="audio/mpeg">
   </audio>
-  <div class="gif-container" onload="play('screamer')"></div>
+  <div class="gif-container"></div>
 </body>
 </html>
