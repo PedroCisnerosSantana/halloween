@@ -14,12 +14,14 @@
                    src: url(fuentes/itlivesintheswamp.ttf); /* file in my fuentes folder */
                   }
        body {background:black;}
-       #wrapper {background-image: url("imagenes/fondo.jfif");
+       #wrapper {background-image: url("imagenes/fondo.jpg");
                  width:1200px;
-                 height:900px;
-                 margin:10px auto;/* centra el wrapper */
+                 height:700px;
+                 overflow: hidden;
+                 margin:50px auto;/* centra el wrapper */
                  font-family: 'Creepster', cursive;
                  position:relative;
+                 zoom: 80%;
                  }
         #titulo {font-size:3.5em;
                  font-family:itLives; /* the font I've add via @font-face */
@@ -30,18 +32,14 @@
              font-size:1.5em;
              top:80px;
              left:870px;}
-        #witch {position: absolute;
-                top:130px;
-                left:900px;
-                width:100px;
-                height:160px;
-                cursor:pointer;
-                /*border: 1px solid white;*/}
-        #zombie {position:absolute;
-                 top:683px;
-                 left:500px;
-                 visibility:hidden;    /* hidden at the begin */
-                 cursor:crosshair;}
+      #witch {
+        position: absolute;
+        top:250px;
+        left:750px;
+        width:45px;
+        height:130px;
+        cursor:pointer;
+      border: 1px solid white;}
     </style>
     <script>
       /* this function change the visibility of an element identified by its id, the parameter, to visible */
@@ -85,10 +83,7 @@
       <embed src="imagenes/screamer.swf" width="100" height="100">
   </object> -->
     <div id="wrapper">
-      <h1 id="titulo">Scary Halloween Party</h1>
-      <p id="p1">Don´t disturb the witch!!!...</p>
-      <div id="witch" onclick="show('zombie');sonar('killyou');"></div><!-- this is the clickable area for the witch (see on style)-->
-      <img id="zombie" onclick="hide('zombie');parar('killyou'); window.location.href='screamer.html'" src="imagenes/zombie.gif" height="200">
+      <div id="witch" onclick="window.location='screamer.html'"></div><!-- this is the clickable area for the witch (see on style)-->
       </div>
     </div>
 </body>
