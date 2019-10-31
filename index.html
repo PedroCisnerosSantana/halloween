@@ -60,20 +60,36 @@
        function parar(element){
          document.getElementById(element).pause();
        }
+       function screamer(element){
+         document.getElementById(element).removeAttribute("hidden");
+       }
+       
     </script>
 </head>
 <body onload="sonar('lullaby')">
     <audio id="killyou" loop>
         <source src="sonidos/killyou.mp3" type="audio/mpeg">
     </audio>
-    <audio>
+    <audio autoplay>
         <source src="sonidos/lullaby.mp3" type="audio/mpeg">
     </audio>
+    <div id="screamerdiv" hidden>
+      <video src="imagenes/screamer.mp4" width="777" height="777" controls></video>
+      <script>
+      var video = document.currentScript.parentElement;
+      video.volume = 0;
+      </script>
+    </div>
+    <!-- <object width="100" height="100">
+      <param name="screamer" value="screamer.swf">
+      <embed src="imagenes/screamer.swf" width="100" height="100">
+  </object> -->
     <div id="wrapper">
       <h1 id="titulo">Scary Halloween Party</h1>
       <p id="p1">Don´t disturb the witch!!!...</p>
-      <div id="witch" onclick="show('zombie');sonar('killyou')"></div><!-- this is the clickable area for the witch (see on style)-->
-      <img id="zombie" onclick="hide('zombie');parar('killyou')" src="imagenes/zombie.gif" height="200">
+      <div id="witch" onclick="show('zombie');sonar('killyou');"></div><!-- this is the clickable area for the witch (see on style)-->
+      <img id="zombie" onclick="hide('zombie');parar('killyou'); window.location.href='screamer.html'" src="imagenes/zombie.gif" height="200">
+      </div>
     </div>
 </body>
 </html>
