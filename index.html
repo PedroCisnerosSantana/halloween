@@ -36,10 +36,26 @@
       cursor:pointer;
       border: 1px solid white;
       }
+    #screamer2 {
+      position: absolute;
+      background-size: 100%;
+      visibility: hidden;
+    }
     </style>
     <script>
+      function sleep(miliseconds){
+        var start = new Date().getTime();
+        for (var i = 0; i<1e7; i++){
+          if ((new Date().getTime() - start) > miliseconds){
+            break;
+          }
+        }
+      }
+
        function screamer(element){
-         document.getElementById(element).removeAttribute("hidden");
+         document.getElementById(element).setAttribute("visibility: hidden");
+         sleep(3000);
+         document.getElementById(element).setAttribute("visibility: show");
        }
     </script>
 </head>
@@ -49,7 +65,8 @@
     </audio>
     <div id="wrapper">
       <div id="scr" onclick="window.location='screamer.html'"></div>
-      <div id="scr2"></div>
+      <div id="scr2" onclick="screamer('screamer2')"></div>
+      <img src="imagenes/screamer2.jpg" id="screamer2">
     </div>
 </body>
 </html>
