@@ -52,7 +52,7 @@
       }
 
        function screamer(element){
-         document.getElementById(element).setAttribute("visibility", "show");
+         document.getElementById(element).removeAttribute("visibility", "show");
          sleep(3000);
          document.getElementById(element).setAttribute("visibility", "hidden");
        }
