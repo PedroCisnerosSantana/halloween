@@ -38,7 +38,6 @@
       }
     #screamer2 {
       position: absolute;
-      visibility: hidden;
     }
     </style>
     <script>
@@ -52,7 +51,7 @@
       }
 
        function screamer(element){
-         document.getElementById(element).removeAttribute("visibility", "show");
+         document.getElementById(element).setAttribute("visibility", "show");
          sleep(3000);
          document.getElementById(element).setAttribute("visibility", "hidden");
        }
@@ -65,7 +64,7 @@
     <div id="wrapper">
       <div id="scr" onclick="window.location='screamer.html'"></div>
       <div id="scr2" onclick="screamer('screamer2')"></div>
-      <img src="imagenes/screamer2.jpg" id="screamer2">
+      <img style="visibility: hidden;" src="imagenes/screamer2.jpg" id="screamer2">
     </div>
 </body>
 </html>
